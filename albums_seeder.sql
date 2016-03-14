@@ -15,4 +15,5 @@ VALUES ('The Modern Lovers', 'The Modern Lovers', '1976', 'proto-punk', '1.0'),
 ('Black Candy', 'Beat Happening', '1989', 'post-punk', '0.2'),
 ('Life''s a Riot With Spy vs. Spy', 'Billy Bragg', '1983', 'folk punk', '1.2'),
 ('Broom', 'Someone Still Loves You Boris Yeltsin', '2005', 'indie pop', '1.0'),
-('Beautiful Rat Sunset', 'The Mountain Goats', '1994', 'lo-fi', '0.1')
+('Beautiful Rat Sunset', 'The Mountain Goats', '1994', 'lo-fi', '0.1'),
+('Haha Sound', 'Broadcast', '2003', 'indie electronic', '0.1')
