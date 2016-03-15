@@ -24,7 +24,8 @@ WHERE last_name IN ('Herber', 'Dredge', 'Lipner', 'Baek');
 /*Irena, Vidya, Maya*/
 SELECT first_name, last_name
 FROM employees
-WHERE first_name IN ('Irena', 'Vidya', 'Maya');
+WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+ORDER BY `last_name` ASC, `first_name` ASC;
 
 /*E last names*/
 SELECT first_name, last_name
@@ -68,15 +69,18 @@ AND
 /*E last names*/
 SELECT first_name, last_name
 FROM employees
-WHERE last_name LIKE 'E%' OR last_name LIKE '%e';
+WHERE last_name LIKE 'E%' OR last_name LIKE '%e'
+ORDER BY `emp_no` DESC;
 
 SELECT first_name, last_name
 FROM employees
 WHERE last_name LIKE 'E%' AND last_name LIKE '%e';
 
-SELECT first_name, last_name, birth_date
+/*hired in the 90s, born on Chrimbus with KHUN BERNINI first!*/
+SELECT first_name, last_name, birth_date, `hire_date`
 FROM employees
-WHERE `hire_date` LIKE '199%' AND `birth_date` LIKE '%12-25';
+WHERE `hire_date` LIKE '199%' AND `birth_date` LIKE '%12-25'
+ORDER BY `hire_date` DESC, `birth_date` DESC;
 
 SELECT first_name, last_name
 FROM employees
