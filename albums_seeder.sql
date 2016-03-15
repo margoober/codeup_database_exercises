@@ -2,7 +2,7 @@ USE codeup_test_db;
 
 INSERT INTO albums (name, artist, release_date, genre, sales_in_millions)
 VALUES ('The Modern Lovers', 'The Modern Lovers', '1976', 'proto-punk', '1.0'),
-('The Dance of Death & Other Plantation Favorites', 'John Fahey', '1967', 'folk', '0.5'),
+('The Dance of Death & Other Plantation Favorites', 'John Fahey', 1967, 'folk', '0.5'),
 ('The Raincoats', 'The Raincoats', '1979', 'post-punk', '1.1'),
 ('You Turn Me On', 'Beat Happening', '1992', 'twee pop', '0.4'),
 ('Work And Non Work', 'Broadcast', '1997', 'indie electronic', '1.1'),
@@ -21,4 +21,7 @@ VALUES ('The Modern Lovers', 'The Modern Lovers', '1976', 'proto-punk', '1.0'),
 ('Tender Buttons', 'Broadcast', "2005", 'indie electronic', '1.1'),
 ('The Future Crayon', 'Broadcast', "2006", 'indie electronic', '1.1'),
 ('Extended Play Two', 'Broadcast', "2000", 'indie electronic', '1.1'),
-('Blind Joe Death', 'John Fahey', '1959', 'folk', '0.1')
+('Blind Joe Death', 'John Fahey', '1959', 'folk', '0.1'),
+('Remain in Light', 'The Talking Heads', '1980', 'post-punk', '1.2'),
+('Speaking in Tongues', 'The Talking Heads', '1983', 'new wave', '2.1'),
+('Fear of Music', "The Talking Heads", '1979', 'post-punk', '1.8')
