@@ -108,9 +108,9 @@ WHERE first_name IN ('Irena', 'Vidya', 'Maya')
 group BY `gender`;
 
 /*E last names*/
-SELECT first_name, last_name
+SELECT concat(first_name, ' ', last_name)
 FROM employees
-WHERE last_name LIKE "E%";
+WHERE last_name LIKE "E%" AND first_name LIKE "E%";
 
 /*born in the 90s*/
 SELECT first_name, last_name, hire_date
@@ -171,6 +171,11 @@ FROM employees
 WHERE first_name LIKE 'Z%' AND last_name LIKE 'Z%'
 GROUP BY first_name DESC;
 
+SELECT first_name, count(first_name)
+FROM employees
+GROUP BY first_name
+ORDER BY count(first_name) desc;
+
 </string>
 			<key>table</key>
 			<string>employees</string>
@@ -188,6 +193,32 @@ GROUP BY first_name DESC;
 	<array/>
 	<key>queryHistory</key>
 	<array>
+		<string>SELECT first_name, count(first_name)
+FROM employees
+GROUP BY first_name
+ORDER BY count(first_name) desc</string>
+		<string>SELECT first_name, count(first_name)
+FROM employees
+GROUP BY first_name
+ORDER BY count(first_name)</string>
+		<string>SELECT first_name, count(first_name)
+FROM employees
+ORDER BY count(first_name)</string>
+		<string>SELECT first_name, count(first_name)
+FROM employees
+GROUP BY count(first_name)</string>
+		<string>/*E last names*/
+SELECT concat(first_name, ' ', last_name)
+FROM employees
+WHERE last_name LIKE "E%" AND first_name LIKE "E%"</string>
+		<string>/*E last names*/
+SELECT concat(first_name, ' ', last_name)
+FROM employees
+WHERE last_name LIKE "E%"</string>
+		<string>/*E last names*/
+SELECT concat(first_name, last_name)
+FROM employees
+WHERE last_name LIKE "E%"</string>
 		<string>/*Irena, Vidya, Maya*/
 SELECT COUNT(gender), `gender`
 FROM employees
@@ -235,28 +266,6 @@ GROUP BY last_name DESC</string>
 FROM `employees`
 WHERE first_name = 'Mark', count(last_name) &gt; 1
 GROUP BY last_name</string>
-		<string>SELECT count(*), first_name, last_name
-FROM `employees`
-WHERE first_name = 'Mark'
-GROUP BY last_name</string>
-		<string>SELECT count(*), first_name, last_name
-FROM `employees`
-WHERE first_name = 'Mark'
-GROUP BY first_name</string>
-		<string>SELECT count(*)
-FROM `employees`
-WHERE first_name = 'Mark'</string>
-		<string>SELECT count(*)
-FROM `employees`
-WHERE first_name = 'anna'</string>
-		<string>SELECT count(*)
-FROM `employees`
-WHERE first_name LIKE '%anna%'</string>
-		<string>SELECT count(*)
-FROM `employees`</string>
-		<string>SELECT count(*)
-FROM `employees`
-WHERE first_name LIKE '%qu%'</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>
