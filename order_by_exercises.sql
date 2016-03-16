@@ -28,9 +28,9 @@ WHERE first_name IN ('Irena', 'Vidya', 'Maya')
 group BY `gender`;
 
 /*E last names*/
-SELECT first_name, last_name
+SELECT concat(first_name, ' ', last_name)
 FROM employees
-WHERE last_name LIKE "E%";
+WHERE last_name LIKE "E%" AND first_name LIKE "E%";
 
 /*born in the 90s*/
 SELECT first_name, last_name, hire_date
@@ -77,7 +77,10 @@ FROM employees
 WHERE last_name LIKE 'E%' AND last_name LIKE '%e';
 
 /*hired in the 90s, born on Chrimbus with KHUN BERNINI first!*/
-SELECT first_name, last_name, birth_date, `hire_date`
+SELECT concat(first_name, ' ', last_name),
+          birth_date,
+          `hire_date`,
+          DATEDIFF(curdate(), hire_date) AS 'total days IN HECK.'
 FROM employees
 WHERE `hire_date` LIKE '199%' AND `birth_date` LIKE '%12-25'
 ORDER BY `hire_date` DESC, `birth_date` DESC;
@@ -90,4 +93,9 @@ SELECT first_name, last_name
 FROM employees
 WHERE first_name LIKE 'Z%' AND last_name LIKE 'Z%'
 GROUP BY first_name DESC;
+
+SELECT first_name, count(first_name)
+FROM employees
+GROUP BY first_name
+ORDER BY count(first_name) DESC;
 

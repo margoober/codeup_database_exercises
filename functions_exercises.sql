@@ -77,21 +77,36 @@ FROM employees
 WHERE last_name LIKE 'E%' AND last_name LIKE '%e';
 
 /*hired in the 90s, born on Chrimbus with KHUN BERNINI first!*/
-SELECT first_name, last_name, birth_date, `hire_date`
+SELECT concat(first_name, ' ', last_name),
+          birth_date,
+          `hire_date`,
+          DATEDIFF(curdate(), hire_date) AS 'total days IN HECK.'
 FROM employees
 WHERE `hire_date` LIKE '199%' AND `birth_date` LIKE '%12-25'
 ORDER BY `hire_date` DESC, `birth_date` DESC;
 
-SELECT first_name, last_name
-FROM employees
-WHERE `last_name` LIKE '%q%' AND `last_name` NOT LIKE '%qu%';
+/*who's worked in this hellscape the longest? who is therefore most despondent?*/
+SELECT concat(first_name, ' ', last_name) AS 'unfortunate soul', datediff(curdate(), hire_date) AS 'DAYS SPENT SLAVING IN THIS HELLSCAPE OF A WORKPLACE'
+FROM `employees`
+ORDER BY datediff(curdate(), hire_date) DESC;
+;
 
-SELECT first_name, last_name
+/*q but no qu names, ordered by firstname/lastname duplicates. TWINSIES!!!!!!*/
+SELECT concat(first_name, ' ', last_name) AS 'First Name Last Name',
+COUNT(*)
 FROM employees
-WHERE first_name LIKE 'Z%' AND last_name LIKE 'Z%'
-GROUP BY first_name DESC;
+WHERE `last_name` LIKE '%q%' AND `last_name` NOT LIKE '%qu%'
+GROUP BY concat(`first_name`, ' ', `last_name`)
+ORDER BY COUNT(*) DESC;
+
+/*FiNd TOP TeN ToTaL tWiNzZz*/
+SELECT concat(first_name, ' ', last_name) AS 'Person', count(*)
+FROM employees
+GROUP BY concat(first_name, ' ', last_name)
+ORDER BY count(*) DESC
+LIMIT 10 OFFSET 0;
 
 SELECT first_name, count(first_name)
 FROM employees
 GROUP BY first_name
-ORDER BY count(first_name) desc;
+ORDER BY count(first_name) DESC;
