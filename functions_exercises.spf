@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>employees</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-6007588040747464574</string>
+			<key>name</key>
+			<string>Codeup Vagrant</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>ssh_host</key>
+			<string>192.168.77.77</string>
+			<key>ssh_keyLocation</key>
+			<string></string>
+			<key>ssh_keyLocationEnabled</key>
+			<integer>0</integer>
+			<key>ssh_user</key>
+			<string>vagrant</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPSSHTunnelConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>margoober</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClZlbXBfbm/SHh8tLl8Q
+			D05TTXV0YWJsZVN0cmluZ6MtLyNYTlNTdHJpbmfSHh8xMl5OU011
+			dGFibGVBcnJheaMxMyNXTlNBcnJhedIeHyI1oiIjXxAPTlNLZXll
+			ZEFyY2hpdmVy0Tg5VGRhdGGAAQAIABEAGgAjAC0AMgA3AEUASwBS
+			AFoAZQBsAHAAcgB0AHYAegB8AH4AgACCAIcAjACRALoAwQDCAMMA
+			xQDKANUA3gD0APgBBQEOARMBFQEXARkBHgEoASoBMQE2AUgBTAFV
+			AVoBaQFtAXUBegF9AY8BkgGXAAAAAAAAAgEAAAAAAAAAOgAAAAAA
+			AAAAAAAAAAAAAZk=
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {694, 456}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>SELECT	DISTINCT first_name
+FROM employees
+WHERE first_name LIKE '%oo%';
+
+SELECT emp_no, first_name, last_name
+FROM employees
+WHERE emp_no BETWEEN 10026 AND 10082;
+
+SELECT emp_no, title
+FROM titles
+WHERE to_date IS NOT NULL;
+
+SELECT first_name, last_name
+FROM employees
+WHERE last_name = 'Herber'
+OR last_name = 'Dredge'
+OR last_name = 'Lipner'
+OR last_name = 'Baek';
+
+SELECT DISTINCT last_name
+FROM employees
+WHERE last_name IN ('Herber', 'Dredge', 'Lipner', 'Baek');
+
+/*Irena, Vidya, Maya*/
+SELECT COUNT(gender), `gender`
+FROM employees
+WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+group BY `gender`;
+
+/*E last names*/
+SELECT first_name, last_name
+FROM employees
+WHERE last_name LIKE "E%";
+
+/*born in the 90s*/
+SELECT first_name, last_name, hire_date
+FROM employees
+WHERE hire_date BETWEEN "1990-01-01" AND "1999-12-31";
+
+/*born on Christmas*/
+SELECT first_name, last_name, birth_date
+FROM employees
+WHERE birth_date LIKE "%12-25";
+
+/*last names contain a Q*/
+SELECT first_name, last_name
+FROM employees
+WHERE last_name LIKE '%q%';
+
+/*women born on my birthday!*/
+SELECT first_name, last_name, birth_date, gender
+FROM employees
+WHERE birth_date LIKE '%10-14'
+AND gender = 'F'
+ORDER BY birth_date DESC;
+
+SELECT first_name, last_name
+FROM employees
+ORDER BY length(first_name) DESC, length(last_name) DESC;
+
+SELECT first_name, last_name
+FROM employees
+WHERE (first_name = 'Vidya' OR
+   first_name = 'Maya'
+   OR first_name = 'Irena')
+AND
+(gender = "M");
+
+/*E last names*/
+SELECT first_name, last_name
+FROM employees
+WHERE last_name LIKE 'E%' OR last_name LIKE '%e'
+ORDER BY `emp_no` DESC;
+
+SELECT first_name, last_name
+FROM employees
+WHERE last_name LIKE 'E%' AND last_name LIKE '%e';
+
+/*hired in the 90s, born on Chrimbus with KHUN BERNINI first!*/
+SELECT first_name, last_name, birth_date, `hire_date`
+FROM employees
+WHERE `hire_date` LIKE '199%' AND `birth_date` LIKE '%12-25'
+ORDER BY `hire_date` DESC, `birth_date` DESC;
+
+SELECT first_name, last_name
+FROM employees
+WHERE `last_name` LIKE '%q%' AND `last_name` NOT LIKE '%qu%';
+
+SELECT first_name, last_name
+FROM employees
+WHERE first_name LIKE 'Z%' AND last_name LIKE 'Z%'
+GROUP BY first_name DESC;
+
+</string>
+			<key>table</key>
+			<string>employees</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>145</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>/*Irena, Vidya, Maya*/
+SELECT COUNT(gender), `gender`
+FROM employees
+WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+group BY `gender`</string>
+		<string>/*Irena, Vidya, Maya*/
+SELECT COUNT(gender)
+FROM employees
+WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+group BY `gender`</string>
+		<string>/*Irena, Vidya, Maya*/
+SELECT first_name, last_name
+FROM employees
+WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+ORDER BY `last_name` ASC, `first_name` ASC</string>
+		<string>SELECT COUNT(distinct first_name)
+FROM employees
+WHERE first_name NOT LIKE '%a%'</string>
+		<string>SELECT COUNT(first_name)
+FROM employees
+GROUP BY first_name
+WHERE first_name NOT LIKE '%a%'</string>
+		<string>SELECT COUNT(first_name)
+FROM employees
+WHERE first_name NOT LIKE '%a%'</string>
+		<string>SELECT COUNT(DISTINCT first_name)
+FROM employees
+WHERE first_name NOT LIKE '%a%'</string>
+		<string>SELECT last_name
+FROM employees
+GROUP BY last_name DESC
+LIMIT 10</string>
+		<string>SELECT DISTINCT last_name
+FROM employees
+ORDER BY last_name desc
+LIMIT 10</string>
+		<string>SELECT DISTINCT last_name
+FROM employees
+LIMIT 10</string>
+		<string>SELECT last_name
+FROM employees
+GROUP BY last_name DESC</string>
+		<string>SELECT UNIX_TIMESTAMP()</string>
+		<string>SELECT count(*), first_name, last_name
+FROM `employees`
+WHERE first_name = 'Mark', count(last_name) &gt; 1
+GROUP BY last_name</string>
+		<string>SELECT count(*), first_name, last_name
+FROM `employees`
+WHERE first_name = 'Mark'
+GROUP BY last_name</string>
+		<string>SELECT count(*), first_name, last_name
+FROM `employees`
+WHERE first_name = 'Mark'
+GROUP BY first_name</string>
+		<string>SELECT count(*)
+FROM `employees`
+WHERE first_name = 'Mark'</string>
+		<string>SELECT count(*)
+FROM `employees`
+WHERE first_name = 'anna'</string>
+		<string>SELECT count(*)
+FROM `employees`
+WHERE first_name LIKE '%anna%'</string>
+		<string>SELECT count(*)
+FROM `employees`</string>
+		<string>SELECT count(*)
+FROM `employees`
+WHERE first_name LIKE '%qu%'</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.46-0ubuntu0.14.04.2-log</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

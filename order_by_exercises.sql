@@ -22,10 +22,10 @@ FROM employees
 WHERE last_name IN ('Herber', 'Dredge', 'Lipner', 'Baek');
 
 /*Irena, Vidya, Maya*/
-SELECT first_name, last_name
+SELECT COUNT(gender), `gender`
 FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-ORDER BY `last_name` ASC, `first_name` ASC;
+group BY `gender`;
 
 /*E last names*/
 SELECT first_name, last_name
@@ -90,3 +90,4 @@ SELECT first_name, last_name
 FROM employees
 WHERE first_name LIKE 'Z%' AND last_name LIKE 'Z%'
 GROUP BY first_name DESC;
+
