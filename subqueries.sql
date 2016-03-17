@@ -259,3 +259,17 @@ WHERE dept_no IN (
           )
           AND to_date > now()
 );
+/*comparing manager salaries by gender*/
+SELECT AVG(salary), gender
+FROM salaries s
+JOIN dept_manager AS dm ON dm.emp_no = s.emp_no
+JOIN employees AS e ON e.emp_no = dm.emp_no
+GROUP BY gender;
+
+SELECT AVG(salary), gender
+FROM salaries s
+JOIN dept_manager AS dm ON dm.emp_no = s.emp_no
+JOIN employees AS e ON e.emp_no = dm.emp_no
+WHERE s.to_date > now()
+AND dm.to_date > now()
+GROUP BY gender;
